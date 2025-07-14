@@ -29,22 +29,17 @@ You should create one R script called run_analysis.R that does the following.
 # My Submission for Peer-graded Assignment: Getting and Cleaning Data Course Project  <br /> 
 ##Files in this Repository
 1. run_analysis.R: This R script performs the following steps:
-
 a. Merges the training and test sets to create one data set.
 b. Extracts only the measurements on the mean and standard deviation for each measurement.
 c. Uses descriptive activity names to name the activities in the data set.
 d. Appropriately labels the data set with descriptive variable names.
 e. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
 2. CodeBook.md: This file describes the variables, the data, and any transformations or work that was performed to clean up the data.
-
 3. tidy_data.txt: This file contains the final tidy data set with the average of each variable for each activity and each subject.
 
-##How to Run the Script
+## How to Run the Script
 To run the analysis, follow these steps:
-
 1. Download the Data: If you haven't already, download the data from the following link: Data for the project. Extract the contents of the zip file to your working directory.
-
 2. Run the Script: Open R or RStudio and run the run_analysis.R script. This script will read the data, perform the necessary transformations, and generate the tidy_data.txt file with the tidy data set.
 
 ## About the Data
