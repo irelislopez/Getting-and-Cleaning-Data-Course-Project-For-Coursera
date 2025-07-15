@@ -27,7 +27,7 @@ You should create one R script called run_analysis.R that does the following.
 
 
 # My Submission for Peer-graded Assignment: Getting and Cleaning Data Course Project  <br /> 
-##Files in this Repository
+## Files in this Repository
 1. run_analysis.R: This R script performs the following steps:
 a. Merges the training and test sets to create one data set.
 b. Extracts only the measurements on the mean and standard deviation for each measurement.
