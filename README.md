@@ -46,5 +46,5 @@ To run the analysis, follow these steps:
 The data used in this project were collected from the accelerometers of the Samsung Galaxy S smartphone. A full description of the data is available at the following link: Human Activity Recognition Using Smartphones.
 
 ## Code Book
-For details about the variables, data, and transformations used in this analysis, please refer to the codebook.md file in this repository.
+For details about the variables, data, and transformations used in this analysis, please refer to the CodeBook.md file in this repository.
 
