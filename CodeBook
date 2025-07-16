@@ -1,0 +1,101 @@
+# CodeBook
+
+This codebook describes the variables, the source data, and the transformations performed to create the final tidy dataset `FinalData.txt` as part of the Human Activity Recognition Using Smartphones project.
+
+---
+
+## Source Data
+
+The original dataset was obtained from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones).
+
+- Dataset: Human Activity Recognition Using Smartphones Data Set
+- Version: 1.0
+- Files extracted from the archive: `UCI HAR Dataset/`
+
+---
+
+## Data Description
+
+The dataset consists of accelerometer and gyroscope readings from a smartphone (Samsung Galaxy S II) worn by 30 participants performing daily activities.
+
+Each observation records sensor signals along the X, Y, and Z axes, which were pre-processed into 561 features.
+
+### Activities Observed:
+
+- WALKING  
+- WALKING_UPSTAIRS  
+- WALKING_DOWNSTAIRS  
+- SITTING  
+- STANDING  
+- LAYING  
+
+### Subjects:
+
+- 30 volunteers participated, identified by numbers from 1 to 30.
+
+---
+
+## Files Used
+
+- `features.txt`: Names of the 561 features.
+- `activity_labels.txt`: Mapping from activity code to activity name.
+- `X_train.txt`, `X_test.txt`: Feature measurements for training and test sets.
+- `y_train.txt`, `y_test.txt`: Activity labels for each observation.
+- `subject_train.txt`, `subject_test.txt`: Subject identifiers for each observation.
+
+---
+
+## Transformations Performed
+
+The following steps were taken to clean and transform the data:
+
+1. **Data Merging**  
+   - Combined the training and test datasets using `rbind()`.
+
+2. **Feature Selection**  
+   - Extracted only the measurements related to the **mean** and **standard deviation**.  
+   - Selected columns using `grep("mean\\(\\)|std\\(\\)", ...)` to avoid variables like `meanFreq()`.
+
+3. **Activity Labeling**  
+   - Replaced numeric activity codes with descriptive activity names using `activity_labels.txt`.
+
+4. **Variable Renaming**  
+   - Made variable names more readable by applying the following substitutions:
+     - `"Acc"` → `"Accelerometer"`
+     - `"Gyro"` → `"Gyroscope"`
+     - `"Mag"` → `"Magnitude"`
+     - `"BodyBody"` → `"Body"`
+     - Prefix `"t"` → `"Time"`
+     - Prefix `"f"` → `"Frequency"`
+     - `"mean()"` → `"Mean"`
+     - `"std()"` → `"STD"`
+
+5. **Tidy Dataset Creation**  
+   - Created `FinalData`, a new dataset with the **average of each variable** for each **activity** and each **subject**, using `group_by(Subject, Activity)` and `summarise_all(mean)`.
+
+6. **Export**  
+   - The final tidy dataset was written to `FinalData.txt`.
+
+---
+
+## Variables in Final Dataset (`FinalData.txt`)
+
+- `Subject`: Integer. Identifier of the volunteer (range: 1–30).
+- `Activity`: Factor. Activity name performed (e.g., WALKING, SITTING).
+- All other variables are numeric and represent the **average** of the corresponding mean or standard deviation feature for that activity and subject.
+
+Example variables include:
+
+- `TimeBodyAccelerometerMeanX`
+- `TimeBodyAccelerometerMeanY`
+- `TimeBodyAccelerometerSTDZ`
+- `FrequencyBodyGyroscopeMeanX`
+- `TimeGravityAccelerometerSTDY`
+- *(and so on for a total of 86 measured variables)*
+
+---
+
+## Notes
+
+- Only features with exact matches to `"mean()"` and `"std()"` were included.
+- This tidy dataset conforms to the principles of tidy data: each variable forms a column, each observation forms a row, and each type of observational unit forms a table.
