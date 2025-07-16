@@ -34,8 +34,8 @@ b. Extracts only the measurements on the mean and standard deviation for each me
 c. Uses descriptive activity names to name the activities in the data set.
 d. Appropriately labels the data set with descriptive variable names.
 e. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-2. codebook.md: This file describes the variables, the data, and any transformations or work that was performed to clean up the data.
-3. tidydata.txt: This file contains the final tidy data set with the average of each variable for each activity and each subject.
+2. Codebook.md: This file describes the variables, the data, and any transformations or work that was performed to clean up the data.
+3. TidyData.txt: This file contains the final tidy data set with the average of each variable for each activity and each subject.
 
 ## How to Run the Script
 To run the analysis, follow these steps:
